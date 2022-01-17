@@ -19,6 +19,13 @@ router.get('/search/:symbol', async function(req, res, next){
         res.json({success: false, data: {}});
     }
 });
+
+router.post('api/portfolio', async (req, res)=>{
+    console.log('req.body is', req.body);
+    let item = await Portfolio.create(req.body);
+    res.json(item)
+
+})
 //Create
 router.post('/wallet', async function(req, res, next) {
     console.log(req.body)
